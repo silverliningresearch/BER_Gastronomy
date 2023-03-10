@@ -47,14 +47,16 @@
         window.addEventListener('load', function () {
         setTimeout(() => {
           const googleMapsHandler = () => {
-            console.log("Current Page Index: ", api.fn.getCurrentPageIndex() );
+            if (api.fn.getCurrentPageIndex()) 
+            {
+              console.log("Current Page Index: ", api.fn.getCurrentPageIndex() );
 
-            if (api.fn.getCurrentPageIndex() === 8) { //Flight arrival
-              show_flight_search_box() ;
-            } else {
-              hide_flight_search_box();
-            }
-
+              if (api.fn.getCurrentPageIndex() === 8) { //Flight arrival
+                show_flight_search_box() ;
+              } else {
+                hide_flight_search_box();
+              }
+          }
           };
 
           api.events.subscribe('next', googleMapsHandler);
